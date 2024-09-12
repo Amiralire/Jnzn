@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# لیست شهرها
+cities=("Paris" "Istanbul" "Ankara" "Frankfurt" "Berlin" "Amsterdam")
+
+# انتخاب رندوم یک شهر
+random_city=$(shuf -n 1 -e "${cities[@]}")
+
+echo "Fetching IPs for $random_city..."
+
+# گرفتن اطلاعات آی‌پی با استفاده از API
+curl -s "https://ipapi.co/${random_city}/json/" | jq '.ip'
